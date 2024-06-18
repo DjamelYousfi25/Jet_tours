@@ -75,8 +75,13 @@ export default defineConfig({
     },
 
     {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+      name: 'Desktop Edge',
+      use: { ...devices["Desktop Edge HiDPI"] },
+      testMatch: /.desktop/
+    },
+    {
+      name: 'Desktop Safarie',
+      use: { ...devices["Desktop Safari"] },
       testMatch: /.desktop/
     },
     {

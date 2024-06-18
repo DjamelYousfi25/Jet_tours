@@ -4,6 +4,7 @@ import { TestContext, describe } from 'node:test';
 describe('Navigation to site',()=>{
 
   test('Navigation 1', async ({ page }) => {
+    test.setTimeout(60000);
     await page.goto('https://www.jettours.com/');
     await page.getByText('Accepter et fermer').click();
     await page.waitForTimeout(1500);
