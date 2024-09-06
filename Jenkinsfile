@@ -14,8 +14,6 @@ pipeline {
                 script {
                     bat 'npm install'
                     bat 'npm install playwright@latest'
-                    bat 'npx playwright install msedge'
-
                 }
             }
         }
@@ -26,18 +24,27 @@ pipeline {
                 }
             }
         }
-  
+        stage('Check Index.html') {
+          steps {
+        script {
+            bat "type C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Jenkins_jet_tours\\playwright-report\\index.html"
+        }
     }
-     post {
+}
+    
+    }
+    post {
         always {
-            publishHTML([[
-                reportName: 'Playwright Test Report',
-                reportDir: 'playwright-report',
-                reportFiles: 'index.html',
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                allowMissing: false
-            ]])
+            script {
+                publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Jenkins_jet_tours\\playwright-report\\',
+                    reportFiles: 'index.html',
+                    reportName: "Report"
+                ])
+            }
         }
     }
 }

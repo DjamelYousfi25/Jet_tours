@@ -8,7 +8,8 @@ describe("Tests moblies",()=>{
     await page.goto('/');
     await page.waitForSelector('#privacy__validate');
     await page.locator('#privacy__validate').click();
-    await page.locator('#navbar--mobile > div.row__navbar-mobile.bl-brown > div > a > button').click();                  
+    await page.locator('#navbar--mobile > div.row__navbar-mobile.bl-brown > div > a > button').click();   
+               
     await page.locator('#mm-1 > ul > li:nth-child(1) > a').click();
     await page.waitForSelector("#mm-2 > ul > li.grey_box > a");
     await page.locator('#mm-2 > ul > li.grey_box > a').click();
