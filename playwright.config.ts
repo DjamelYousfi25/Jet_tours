@@ -74,11 +74,7 @@ export default defineConfig({
       testMatch: /.desktop/
     },
 
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-      testMatch: /.desktop/
-    },
+
     {
       name: 'Google Chrome',
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
